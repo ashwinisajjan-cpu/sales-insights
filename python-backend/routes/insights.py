@@ -2,6 +2,7 @@ from fastapi import APIRouter
 from database.salesforce_client import get_sf, get_soql, build_account
 from ai.insights_logic import build_ai_insights
 from enrichment.wikipedia_client import enrich   # ✅ FIXED
+from enrichment.real_locations import get_real_company_locations
 
 router = APIRouter()
 
@@ -104,5 +105,28 @@ def get_company_insights(company: str):
             "summary": summary,
         }
 
+    except Exception as e:
+        return {"error": str(e)}
+
+
+@router.get("/api/company-locations")
+def get_company_locations_api(company: str):
+    """Get REAL global office locations for a company from Wikipedia + Salesforce"""
+    try:
+        # Get Salesforce account data
+        accounts = _get_all_accounts()
+        sf_acc = _find_account(company, accounts)
+        
+        # Get REAL locations from Wikipedia + Salesforce
+        locations = get_real_company_locations(company, sf_acc)
+        
+        return {
+            "company": company,
+            "headquarters": locations.get("headquarters"),
+            "countries": locations.get("countries", []),
+            "major_offices": locations.get("major_offices", []),
+            "offices_count": locations.get("offices_count"),
+            "source": locations.get("source"),
+        }
     except Exception as e:
         return {"error": str(e)}
