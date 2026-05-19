@@ -12,7 +12,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
     
     # Known global offices for major tech companies (from public info)
     company_offices = {
-        "Tesla": {
+        "tesla": {
             "hq": "Palo Alto, California, USA",
             "offices": [
                 "Palo Alto, California, USA",
@@ -27,7 +27,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Amsterdam, Netherlands",
             ]
         },
-        "Netflix": {
+        "netflix": {
             "hq": "Los Gatos, California, USA",
             "offices": [
                 "Los Gatos, California, USA",
@@ -42,7 +42,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Toronto, Canada",
             ]
         },
-        "Apple": {
+        "apple": {
             "hq": "Cupertino, California, USA",
             "offices": [
                 "Cupertino, California, USA",
@@ -57,7 +57,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Dublin, Ireland",
             ]
         },
-        "Amazon": {
+        "amazon": {
             "hq": "Seattle, Washington, USA",
             "offices": [
                 "Seattle, Washington, USA",
@@ -73,7 +73,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Toronto, Canada",
             ]
         },
-        "Google": {
+        "google": {
             "hq": "Mountain View, California, USA",
             "offices": [
                 "Mountain View, California, USA",
@@ -89,7 +89,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Zurich, Switzerland",
             ]
         },
-        "Microsoft": {
+        "microsoft": {
             "hq": "Redmond, Washington, USA",
             "offices": [
                 "Redmond, Washington, USA",
@@ -105,7 +105,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Vancouver, Canada",
             ]
         },
-        "Meta": {
+        "meta": {
             "hq": "Menlo Park, California, USA",
             "offices": [
                 "Menlo Park, California, USA",
@@ -120,7 +120,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Berlin, Germany",
             ]
         },
-        "IBM": {
+        "ibm": {
             "hq": "Armonk, New York, USA",
             "offices": [
                 "Armonk, New York, USA",
@@ -135,7 +135,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Dublin, Ireland",
             ]
         },
-        "Salesforce": {
+        "salesforce": {
             "hq": "San Francisco, California, USA",
             "offices": [
                 "San Francisco, California, USA",
@@ -150,7 +150,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Berlin, Germany",
             ]
         },
-        "Oracle": {
+        "oracle": {
             "hq": "Austin, Texas, USA",
             "offices": [
                 "Austin, Texas, USA",
@@ -165,7 +165,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Toronto, Canada",
             ]
         },
-        "Cisco": {
+        "cisco": {
             "hq": "San Jose, California, USA",
             "offices": [
                 "San Jose, California, USA",
@@ -180,7 +180,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Dublin, Ireland",
             ]
         },
-        "Intel": {
+        "intel": {
             "hq": "Santa Clara, California, USA",
             "offices": [
                 "Santa Clara, California, USA",
@@ -195,7 +195,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Dublin, Ireland",
             ]
         },
-        "Nvidia": {
+        "nvidia": {
             "hq": "Santa Clara, California, USA",
             "offices": [
                 "Santa Clara, California, USA",
@@ -210,7 +210,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Toronto, Canada",
             ]
         },
-        "Adobe": {
+        "adobe": {
             "hq": "San Jose, California, USA",
             "offices": [
                 "San Jose, California, USA",
@@ -225,7 +225,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "München, Germany",
             ]
         },
-        "JPMorgan Chase": {
+        "jpmorgan chase": {
             "hq": "New York, New York, USA",
             "offices": [
                 "New York, New York, USA",
@@ -241,7 +241,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Hong Kong",
             ]
         },
-        "Goldman Sachs": {
+        "goldman sachs": {
             "hq": "New York, New York, USA",
             "offices": [
                 "New York, New York, USA",
@@ -256,7 +256,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Paris, France",
             ]
         },
-        "Bank of America": {
+        "bank of america": {
             "hq": "Charlotte, North Carolina, USA",
             "offices": [
                 "Charlotte, North Carolina, USA",
@@ -271,7 +271,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Singapore",
             ]
         },
-        "Walmart": {
+        "walmart": {
             "hq": "Bentonville, Arkansas, USA",
             "offices": [
                 "Bentonville, Arkansas, USA",
@@ -286,7 +286,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Singapore",
             ]
         },
-        "AT&T": {
+        "at&t": {
             "hq": "Dallas, Texas, USA",
             "offices": [
                 "Dallas, Texas, USA",
@@ -298,7 +298,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Toronto, Canada",
             ]
         },
-        "Verizon": {
+        "verizon": {
             "hq": "New York, New York, USA",
             "offices": [
                 "New York, New York, USA",
@@ -310,7 +310,7 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
                 "Mexico City, Mexico",
             ]
         },
-        "Wells Fargo": {
+        "wells fargo": {
             "hq": "San Francisco, California, USA",
             "offices": [
                 "San Francisco, California, USA",
@@ -330,10 +330,12 @@ def extract_locations_from_wiki(wiki_text: str, company_name: str) -> dict:
     locations = []
     hq = ""
     
-    # Check if company is in our known offices database
-    if company_name in company_offices:
-        hq = company_offices[company_name]["hq"]
-        locations = company_offices[company_name]["offices"].copy()
+    # ✅ CASE-INSENSITIVE lookup
+    company_key = company_name.lower().strip()
+    
+    if company_key in company_offices:
+        hq = company_offices[company_key]["hq"]
+        locations = company_offices[company_key]["offices"].copy()
     else:
         # For unknown companies, DYNAMICALLY extract from Wikipedia text
         # Look for headquarters pattern
