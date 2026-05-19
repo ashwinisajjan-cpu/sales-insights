@@ -113,12 +113,9 @@ def get_company_insights(company: str):
 def get_company_locations_api(company: str):
     """Get REAL global office locations for a company from Wikipedia + Salesforce"""
     try:
-        # Get Salesforce account data
-        accounts = _get_all_accounts()
-        sf_acc = _find_account(company, accounts)
-        
-        # Get REAL locations from Wikipedia + Salesforce
-        locations = get_real_company_locations(company, sf_acc)
+        # Get REAL locations (checks hardcoded DB first, then Wikipedia, then Salesforce)
+        # Pass None for sf_account - the function handles it gracefully
+        locations = get_real_company_locations(company, sf_account=None)
         
         return {
             "company": company,
@@ -129,4 +126,11 @@ def get_company_locations_api(company: str):
             "source": locations.get("source"),
         }
     except Exception as e:
-        return {"error": str(e)}
+        return {
+            "company": company,
+            "headquarters": "Information not available",
+            "countries": [],
+            "major_offices": [],
+            "offices_count": "0",
+            "error": str(e),
+        }
